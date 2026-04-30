@@ -1,66 +1,61 @@
-import React from 'react';
 import Image from 'next/image';
 import logo from '@/images/logo.png';
 import Link from 'next/link';
+import NavLinksPage from './NavLinks';
+import DarkLightPages from './DarkLight';
+import MenuBar from './MenuBar';
 
 const NavbarPages = () => {
   return (
     <div className="sticky top-0 z-50">
-      {/* bg-gradient-to-r ব্যবহার করা হয়েছে সুন্দর রঙের মিশ্রণের জন্য */}
-      <header className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white shadow-lg">
-        <nav className="w-11/12 max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
-          {/* Logo Section */}
-          <div className="flex items-center gap-2">
-            <Image
-              src={logo}
-              alt="logo"
-              width={50}
-              height={50}
-              className="rounded-full border-2 border-yellow-500 p-1"
-            />
-            <span className="font-bold text-xl tracking-tight hidden md:block">
-              AnimalWorld
+      <header className="bg-slate-900 border-b border-yellow-500/10 backdrop-blur-md">
+        <nav className="w-10/12  mx-auto flex items-center justify-between h-16 px-6">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 group flex-shrink-0"
+          >
+            <div className="relative">
+              <Image
+                src={logo}
+                alt="AnimalWorld logo"
+                width={40}
+                height={40}
+                className="rounded-full border-2 border-yellow-500 p-0.5 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-6"
+              />
+            </div>
+            <span className="font-bold text-lg tracking-tight text-white hidden md:block">
+              Animal<span className="text-yellow-400">World</span>
             </span>
-          </div>
+          </Link>
 
-          {/* Navigation Links */}
-          <ul className="flex items-center gap-8 font-medium">
-            <li className="relative group">
-              <Link
-                href={'/'}
-                className="text-gray-300 hover:text-yellow-400 transition-all duration-300"
-              >
-                Home
-              </Link>
-              {/* Hover Underline Animation */}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+          <ul className="hidden md:flex items-center gap-1">
+            <li>
+              <NavLinksPage href="/">Home</NavLinksPage>
             </li>
-
-            <li className="relative group">
-              <Link
-                href={'/animals'}
-                className="text-gray-300 hover:text-yellow-400 transition-all duration-300"
-              >
-                All Animals
-              </Link>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+            <li>
+              <NavLinksPage href="/animals">All Animals</NavLinksPage>
             </li>
           </ul>
 
           <div className="flex items-center gap-4">
-            <Link
-              href={'/'}
-              className="bg-green-700 px-4 py-0.5 rounded-2xl cursor-pointer"
-            >
-              Sign In
-            </Link>
-
-            <Link
-              href={'/'}
-              className="px-4 py-0.5 rounded-2xl cursor-pointer hover:bg-green-700 duration-500 border border-green-700"
-            >
-              Register
-            </Link>
+            <DarkLightPages />
+            <div className="hidden md:flex items-center gap-2">
+              <Link
+                href="/signin"
+                className="text-sm font-semibold px-4 py-1.5 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-all duration-200 hover:-translate-y-px"
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/register"
+                className="text-sm font-semibold px-4 py-1.5 rounded-lg border border-green-600/60 text-white hover:bg-green-600/10 hover:border-green-500 transition-all duration-200 hover:-translate-y-px"
+              >
+                Register
+              </Link>
+            </div>
+            {/* Mobile Hamburger */}
+            <MenuBar />
           </div>
         </nav>
       </header>
