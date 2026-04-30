@@ -10,11 +10,11 @@ const NavLinksPage = ({ href, children }) => {
   return (
     <Link
       href={href}
-      className={`relative inline-block px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 group
+      className={`relative w-full inline-block px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 group
         ${
           isActive
             ? 'text-yellow-400'
-            : 'text-slate-400 hover:text-white hover:bg-white/5'
+            : 'text-slate-400 hover:text-purple-700 hover:bg-gray-300'
         }`}
     >
       {children}

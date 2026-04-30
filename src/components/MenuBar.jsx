@@ -14,7 +14,7 @@ const MenuBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="  relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="p-2 rounded-lg border cursor-pointer text-white border-gray-300 hover:bg-gray-700 transition"

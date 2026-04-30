@@ -11,21 +11,18 @@ const NavbarPages = () => {
       <header className="bg-slate-900 border-b border-yellow-500/10 backdrop-blur-md">
         <nav className="w-10/12  mx-auto flex items-center justify-between h-16 px-6">
           {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-2.5 group flex-shrink-0"
-          >
+          <Link href="/" className="flex items-center gap-2.5 group ">
             <div className="relative">
               <Image
                 src={logo}
                 alt="AnimalWorld logo"
                 width={40}
                 height={40}
-                className="rounded-full border-2 border-yellow-500 p-0.5 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-6"
+                className="rounded-full border-2 border-yellow-500 p-0.5 bg-white/80 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-6"
               />
             </div>
             <span className="font-bold text-lg tracking-tight text-white hidden md:block">
-              Animal<span className="text-yellow-400">World</span>
+              Qurbani<span className="text-yellow-400">Hat</span>
             </span>
           </Link>
 
@@ -55,7 +52,9 @@ const NavbarPages = () => {
               </Link>
             </div>
             {/* Mobile Hamburger */}
-            <MenuBar />
+            <div className="md:hidden">
+              <MenuBar />
+            </div>
           </div>
         </nav>
       </header>
