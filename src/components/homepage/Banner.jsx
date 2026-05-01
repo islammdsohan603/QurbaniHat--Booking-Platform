@@ -34,7 +34,7 @@ const Banner = () => {
 
   return (
     <div className="relative w-screen overflow-hidden shadow-xl">
-      <div className="relative h-[250px] sm:h-[350px] md:h-[500px] lg:h-[600px] w-full">
+      <div className="relative h-64 sm:h-96 md:h-[500px] lg:h-[600px] w-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
