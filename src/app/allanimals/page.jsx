@@ -1,18 +1,52 @@
-import Link from 'next/link';
-import { getData } from '../../fetchdata/page';
-import Image from 'next/image';
+'use client';
 
-const AllAnimalsPages = async () => {
-  const data = await getData();
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { getData } from '../../fetchdata/page';
+import CatgoryPricePage from '@/components/CatgoryPrice';
+
+const AllAnimalsPages = () => {
+  const [animals, setAnimals] = useState([]);
+  const [sortedAnimals, setSortedAnimals] = useState([]);
+  const [sortOrder, setSortOrder] = useState('default');
+
+  useEffect(() => {
+    const loadData = async () => {
+      const data = await getData();
+      setAnimals(data);
+      setSortedAnimals(data);
+    };
+
+    loadData();
+  }, []);
+
+  const handleSort = order => {
+    setSortOrder(order);
+
+    const copy = [...animals];
+
+    if (order === 'low') {
+      copy.sort((a, b) => a.price - b.price);
+    } else if (order === 'high') {
+      copy.sort((a, b) => b.price - a.price);
+    }
+
+    setSortedAnimals(order === 'default' ? animals : copy);
+  };
 
   return (
     <div className="w-10/12 mx-auto py-10">
       <section className="mb-10">
-        <option value="low">low to high</option>
+        <CatgoryPricePage
+          sortOrder={sortOrder}
+          handleSort={handleSort}
+          total={sortedAnimals.length}
+        />
       </section>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {data.map(animal => (
+        {sortedAnimals.map(animal => (
           <div
             key={animal.id}
             className="group relative bg-white rounded-3xl border border-slate-200 p-3 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 cursor-pointer"
@@ -26,7 +60,7 @@ const AllAnimalsPages = async () => {
               />
 
               <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-slate-800 shadow-sm">
-                BDT:{animal.price}
+                BDT: {animal.price}
               </div>
             </div>
 
@@ -34,6 +68,7 @@ const AllAnimalsPages = async () => {
               <h2 className="text-xl font-bold text-slate-800 group-hover:text-blue-600 transition-colors duration-300">
                 {animal.name}
               </h2>
+
               <p className="text-slate-500 text-sm mt-1">
                 Available for adoption
               </p>
