@@ -7,7 +7,7 @@ import NavLinksPage from './NavLinks';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'All Animals', href: '/animals' },
+  { label: 'All Animals', href: '/allanimals' },
 ];
 
 const MenuBar = () => {

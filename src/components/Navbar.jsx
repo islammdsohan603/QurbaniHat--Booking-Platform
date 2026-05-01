@@ -31,7 +31,7 @@ const NavbarPages = () => {
               <NavLinksPage href="/">Home</NavLinksPage>
             </li>
             <li>
-              <NavLinksPage href="/animals">All Animals</NavLinksPage>
+              <NavLinksPage href="/allanimals">All Animals</NavLinksPage>
             </li>
           </ul>
 
