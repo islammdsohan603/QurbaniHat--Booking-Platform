@@ -39,18 +39,16 @@ const RegisterPage = () => {
       name: userData.name,
       password: userData.password,
       email: userData.email,
+      photo: userData.photo,
     });
 
     if (data) {
       toast.success('signUp succefully');
-      route.push('/allanimals');
+      route.push('/signin');
     }
     if (error) {
       toast.error('signUp Filed');
     }
-
-    console.log(data, 'sure');
-    console.log(error, 'error');
   };
 
   return (
@@ -88,11 +86,7 @@ const RegisterPage = () => {
               {/* Name */}
               <TextField isRequired name="name" type="text">
                 <Label className="text-zinc-300 mb-1 block">Full Name</Label>
-                <Input
-                  placeholder="Enter your full name"
-                  startContent={<User size={18} className="text-zinc-500  " />}
-                  classNames={inputStyles}
-                />
+                <Input placeholder="Enter your full name" />
                 <FieldError className="text-red-400 text-xs mt-1" />
               </TextField>
 
@@ -110,14 +104,19 @@ const RegisterPage = () => {
                 <Label className="text-zinc-300 mb-1 block">
                   Email Address
                 </Label>
-                <Input
-                  placeholder="john@example.com"
-                  startContent={<Mail size={18} className="text-zinc-500  " />}
-                  classNames={inputStyles}
-                />
+                <Input placeholder="john@example.com" />
                 <FieldError className="text-red-400 text-xs mt-1" />
               </TextField>
 
+              {/* photo url-link */}
+
+              <TextField isRequired name="photo" type="url">
+                <Label className="text-zinc-300 mb-1 block">Photo URL</Label>
+
+                <Input placeholder="https://example.com/photo.jpg" />
+
+                <FieldError className="text-red-400 text-xs mt-1" />
+              </TextField>
               {/* Password */}
               <TextField
                 isRequired
@@ -134,11 +133,7 @@ const RegisterPage = () => {
                 }}
               >
                 <Label className="text-zinc-300 mb-1 block">Password</Label>
-                <Input
-                  placeholder="Enter your password"
-                  startContent={<Lock size={18} className="text-zinc-500  " />}
-                  classNames={inputStyles}
-                />
+                <Input placeholder="Enter your password" />
                 <Description className="text-zinc-500 text-xs mt-1">
                   Minimum 8 characters, 1 uppercase, 1 number
                 </Description>

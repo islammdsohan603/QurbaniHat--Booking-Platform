@@ -48,7 +48,7 @@ const AnimalsPage = async () => {
                 </p>
               </div>
 
-              <div className="flex justify-center pb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex justify-center pb-4  duration-300">
                 <Link
                   href={`/details/${animal.id}`}
                   className="px-4 py-2 bg-slate-900 text-white text-xs font-medium rounded-lg hover:bg-slate-700 transition-colors"

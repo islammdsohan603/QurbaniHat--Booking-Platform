@@ -9,6 +9,7 @@ import {
   Banknote,
 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const AnimalsDetailsPage = async ({ params }) => {
@@ -155,13 +156,15 @@ const AnimalsDetailsPage = async ({ params }) => {
               </div>
             </div>
 
-            <button className="group cursor-pointer relative w-full overflow-hidden rounded-2xl bg-linear-to-r from-purple-600 to-indigo-600 py-4 font-bold text-white shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-purple-500/40 active:scale-95">
-              <span className="relative z-10 flex items-center justify-center gap-2 text-lg">
-                <Phone size={20} />
-                Contact Seller to Order
-              </span>
-              <div className="absolute inset-0 bg-linear-to-r from-indigo-500 to-purple-700 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-            </button>
+            <Link href={`/order`}>
+              <button className="group cursor-pointer relative w-full overflow-hidden rounded-2xl bg-linear-to-r from-purple-600 to-indigo-600 py-4 font-bold text-white shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-purple-500/40 active:scale-95">
+                <span className="relative z-10 flex items-center justify-center gap-2 text-lg">
+                  <Phone size={20} />
+                  Contact Seller to Order
+                </span>
+                <div className="absolute inset-0 bg-linear-to-r from-indigo-500 to-purple-700 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

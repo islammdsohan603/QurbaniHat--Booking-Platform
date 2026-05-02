@@ -9,15 +9,14 @@ import NavLinksPage from './NavLinks';
 import DarkLightPages from './DarkLight';
 import MenuBar from './MenuBar';
 import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 
 const NavbarPages = () => {
+  const route = useRouter();
+
   const { data: session, isPending } = authClient.useSession();
 
   const user = session?.user;
-
-  const handleLogOut = async () => {
-    const data = await authClient.signOut();
-  };
 
   return (
     <div className="sticky top-0 z-50">
@@ -55,18 +54,32 @@ const NavbarPages = () => {
               <div className="w-8 h-8 rounded-full border-2 border-slate-600 border-t-yellow-400 animate-spin"></div>
             ) : user ? (
               <div className="hidden md:flex items-center gap-3 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
-                <Avatar src={user.image} alt={user.name} className="w-9 h-9" />
+                <Link href={`/profile`} className="cursor-pointer">
+                  <Avatar>
+                    <Avatar.Image
+                      alt={user?.name}
+                      src={user?.image}
+                      referrerPolicy="no-referrer"
+                    />
+                    <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+                  </Avatar>
+                </Link>
 
                 <div className="leading-tight">
-                  <p className="text-sm font-medium text-white">{user.name}</p>
+                  <p className="text-sm font-medium text-white whitespace-nowrap">
+                    {user?.name}
+                  </p>
                   <p className="text-xs text-slate-400">Welcome Back</p>
                 </div>
 
                 <button
-                  onClick={handleLogOut}
-                  className="bg-red-400 px-4 py-1 rounded-2xl cursor-pointer"
+                  onClick={async () => {
+                    await authClient.signOut();
+                    route.push('/');
+                  }}
+                  className="bg-red-500 cursor-pointer hover:bg-red-600 text-white text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-200"
                 >
-                  LogOut
+                  Logout
                 </button>
               </div>
             ) : (

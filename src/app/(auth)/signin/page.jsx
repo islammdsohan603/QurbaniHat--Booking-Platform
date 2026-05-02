@@ -12,7 +12,6 @@ import {
   TextField,
 } from '@heroui/react';
 
-import { User, Mail, Lock, Sparkles } from 'lucide-react';
 import { toast } from 'react-toastify';
 
 import SocailLink from '@/components/SocailLink';
@@ -35,28 +34,25 @@ const SignInpage = () => {
     const formData = new FormData(e.currentTarget);
     const userData = Object.fromEntries(formData.entries());
 
-    const { data, error } = await authClient.signUp.email({
+    const { data, error } = await authClient.signIn.email({
       password: userData.password,
       email: userData.email,
     });
 
     if (data) {
-      toast.success('signUp succefully');
-      route.push('/allanimals');
+      toast.success('signIp succefully');
+      route.push('/');
     }
     if (error) {
       toast.error('signUp Filed');
     }
-
-    console.log(data, 'sure');
-    console.log(error, 'error');
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-950 via-zinc-900 to-slate-950 px-3 py-8 sm:px-6 lg:py-16">
-      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 overflow-hidden rounded-2xl sm:rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_80px_rgba(139,92,246,0.15)]">
+      <div className="w-full  max-w-2xl grid grid-cols-1  overflow-hidden rounded-2xl sm:rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_80px_rgba(139,92,246,0.15)]">
         <div className="p-5 sm:p-8 md:p-12 flex items-center justify-center">
-          <div className="w-full max-w-md">
+          <div className="w-full  ">
             <div className="mb-6 sm:mb-8 text-center">
               <h2 className="text-2xl sm:text-4xl font-bold text-white">
                 Welcome Back
@@ -78,11 +74,7 @@ const SignInpage = () => {
                 <Label className="text-zinc-300 mb-1 block">
                   Email Address
                 </Label>
-                <Input
-                  placeholder="john@example.com"
-                  startContent={<Mail size={18} className="text-zinc-500  " />}
-                  classNames={inputStyles}
-                />
+                <Input placeholder="john@example.com" />
                 <FieldError className="text-red-400 text-xs mt-1" />
               </TextField>
 
@@ -102,11 +94,7 @@ const SignInpage = () => {
                 }}
               >
                 <Label className="text-zinc-300 mb-1 block">Password</Label>
-                <Input
-                  placeholder="Enter your password"
-                  startContent={<Lock size={18} className="text-zinc-500  " />}
-                  classNames={inputStyles}
-                />
+                <Input placeholder="Enter your password" />
                 <Description className="text-zinc-500 text-xs mt-1">
                   Minimum 8 characters, 1 uppercase, 1 number
                 </Description>
@@ -132,12 +120,12 @@ const SignInpage = () => {
             {/* Login Link */}
             <div className="text-center pt-2">
               <p className="text-zinc-400 text-sm">
-                Already have an account?{' '}
+                Create an account?{' '}
                 <Link
-                  href="/signin"
+                  href="/register"
                   className="text-purple-400 hover:text-purple-300 font-medium"
                 >
-                  Sign In
+                  Sign Up
                 </Link>
               </p>
             </div>

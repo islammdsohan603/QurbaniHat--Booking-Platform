@@ -1,12 +1,16 @@
 import { authClient } from '@/lib/auth-client';
+
 import React from 'react';
 import { FaGoogle, FaGithub, FaFacebook } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const SocailLink = () => {
   const handleGoogleSignUp = async () => {
-    const data = await authClient.signIn.social({
+    await authClient.signIn.social({
       provider: 'google',
+      callbackURL: '/',
     });
+    toast.success('Succsfully');
   };
 
   return (
@@ -27,12 +31,6 @@ const SocailLink = () => {
         >
           <FaGoogle className="text-red-400 text-lg" />
           Continue with Google
-        </button>
-
-        {/* GitHub */}
-        <button className="w-full flex items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-zinc-400/40 transition-all duration-300 py-3 text-white font-medium backdrop-blur-md">
-          <FaFacebook className="text-lg" />
-          Continue with Facebook
         </button>
       </div>
     </div>

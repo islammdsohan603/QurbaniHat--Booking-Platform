@@ -47,9 +47,7 @@ const AllAnimalsPages = () => {
 
       {sortedAnimals.length === 0 ? (
         <div className="flex justify-center items-center py-20">
-          <h1 className="text-xl font-semibold text-slate-500 animate-pulse">
-            <h1>Loading...</h1>
-          </h1>
+          <h1 className="text-xl font-semibold text-slate-500 animate-pulse"></h1>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -81,7 +79,7 @@ const AllAnimalsPages = () => {
                 </p>
               </div>
 
-              <div className="flex justify-center pb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex justify-center pb-4  duration-300">
                 <Link
                   href={`/details/${animal.id}`}
                   className="px-4 py-2 bg-slate-900 text-white text-xs font-medium rounded-lg hover:bg-slate-700 transition-colors"
