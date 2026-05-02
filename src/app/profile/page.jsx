@@ -1,5 +1,6 @@
 'use client';
 
+import { toast } from 'react-toastify';
 import { authClient } from '@/lib/auth-client';
 import { Calendar, Mail, User } from 'lucide-react';
 import Image from 'next/image';
@@ -87,6 +88,8 @@ const ProfilePage = () => {
             onClick={async () => {
               await authClient.signOut();
               route.push('/');
+
+              toast.error('logOut');
             }}
             className="w-full py-3 rounded-xl cursor-pointer bg-linear-to-r from-red-500 to-pink-600 text-white font-semibold hover:scale-[1.02] transition duration-300"
           >
