@@ -45,6 +45,9 @@ const NavbarPages = () => {
             <li>
               <NavLinksPage href="/allanimals">All Animals</NavLinksPage>
             </li>
+            <li>
+              <NavLinksPage href="/profile">My profile</NavLinksPage>
+            </li>
           </ul>
 
           <div className="flex items-center gap-4">
