@@ -84,7 +84,7 @@ const ProfilePage = () => {
         </div>
 
         {/* Logout Button */}
-        <div className="mt-8">
+        <div className=" my-8">
           <Link href={`/updataprofile`}>
             <button className="w-full py-3 rounded-xl cursor-pointer bg-linear-to-r from-red-500 to-pink-600 text-white font-semibold hover:scale-[1.02] transition duration-300">
               Updata Profile
