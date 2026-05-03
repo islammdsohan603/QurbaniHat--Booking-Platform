@@ -84,10 +84,11 @@ const ProfilePage = () => {
         </div>
 
         {/* Logout Button */}
-        <div className=" my-8">
-          <Link href={`/updataprofile`}>
-            <button className="w-full py-3 rounded-xl cursor-pointer bg-linear-to-r from-red-500 to-pink-600 text-white font-semibold hover:scale-[1.02] transition duration-300">
-              Updata Profile
+
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Link href="/updataprofile" className="w-full">
+            <button className="w-full py-3 rounded-2xl cursor-pointer bg-linear-to-r from-sky-500 to-cyan-600 text-white font-semibold shadow-lg shadow-sky-900/30 hover:scale-[1.02] hover:shadow-sky-500/20 transition-all duration-300">
+              Update Profile
             </button>
           </Link>
 
@@ -95,10 +96,9 @@ const ProfilePage = () => {
             onClick={async () => {
               await authClient.signOut();
               route.push('/');
-
-              toast.error('logOut');
+              toast.error('Logged Out');
             }}
-            className="w-full py-3 rounded-xl cursor-pointer bg-linear-to-r from-red-500 to-pink-600 text-white font-semibold hover:scale-[1.02] transition duration-300"
+            className="w-full py-3 rounded-2xl cursor-pointer bg-linear-to-r from-red-500 to-pink-600 text-white font-semibold shadow-lg shadow-red-900/30 hover:scale-[1.02] hover:shadow-red-500/20 transition-all duration-300"
           >
             Logout
           </button>

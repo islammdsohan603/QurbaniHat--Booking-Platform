@@ -26,18 +26,21 @@ const UpdataProfilePage = () => {
     try {
       const { data, error } = await authClient.updateUser({
         name,
+
         image,
       });
+
+      if (data) {
+        toast.success('Profile Updated Successfully ✅');
+
+        router.push('/profile');
+        router.refresh();
+      }
 
       if (error) {
         toast.error('Profile update failed');
         return;
       }
-
-      toast.success('Profile Updated Successfully ✅');
-
-      router.push('/profile');
-      router.refresh();
     } catch (err) {
       toast.error('Something went wrong');
     }
