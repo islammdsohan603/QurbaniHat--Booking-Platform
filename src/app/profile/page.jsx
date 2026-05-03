@@ -6,6 +6,7 @@ import { Calendar, Mail, User } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import Link from 'next/link';
 
 const ProfilePage = () => {
   const route = useRouter();
@@ -84,6 +85,12 @@ const ProfilePage = () => {
 
         {/* Logout Button */}
         <div className="mt-8">
+          <Link href={`/updataprofile`}>
+            <button className="w-full py-3 rounded-xl cursor-pointer bg-linear-to-r from-red-500 to-pink-600 text-white font-semibold hover:scale-[1.02] transition duration-300">
+              Updata Profile
+            </button>
+          </Link>
+
           <button
             onClick={async () => {
               await authClient.signOut();

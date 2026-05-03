@@ -117,6 +117,7 @@ const RegisterPage = () => {
 
                 <FieldError className="text-red-400 text-xs mt-1" />
               </TextField>
+
               {/* Password */}
               <TextField
                 isRequired
