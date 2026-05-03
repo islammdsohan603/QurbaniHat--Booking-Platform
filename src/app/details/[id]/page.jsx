@@ -45,13 +45,13 @@ const AnimalsDetailsPage = async ({ params }) => {
             <div className="absolute -inset-4 bg-linear-to-r from-purple-600 to-indigo-600 rounded-3xl blur-3xl opacity-20 group-hover:opacity-40 transition duration-700"></div>
 
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
-              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-3xl">
+              <div className="relative w-full aspect-[4/3]">
                 <Image
                   src={animal.image}
                   alt={animal.name}
                   fill
                   priority
-                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover lg:object-contain"
                 />
               </div>
 

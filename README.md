@@ -9,7 +9,7 @@ booking orders.
 
 # 🚀 Live Demo
 
-- \*\*Live Website: https://qurbani-hat-pink.vercel.app/
+- \*\*Live Website: https://my-app-qurbaniweb.vercel.app/
 
 # ✨ Features
 
@@ -68,15 +68,15 @@ Stores order information into MongoDB.
 
 ## Home
 
-![alt text](<Screenshot 2026-05-02 231423.png>)
+![alt text](<Screenshot 2026-05-03 173319.png>)
 
 ## Animals
 
-![alt text](<Screenshot 2026-05-02 231457.png>)
+![alt text](<Screenshot 2026-05-03 175839.png>)
 
 ## Qurbani Tips
 
-![alt text](<Screenshot 2026-05-02 231510.png>)
+![alt text](<Screenshot 2026-05-03 175852.png>)
 
 ## Create Account
 
