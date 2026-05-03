@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import Link from 'next/link';
+import { Avatar } from '@heroui/react';
 
 const ProfilePage = () => {
   const route = useRouter();
@@ -29,13 +30,14 @@ const ProfilePage = () => {
         {/* Top Section */}
         <div className="flex flex-col items-center text-center">
           <div className="relative">
-            <Image
-              src={user?.image}
-              alt="user"
-              width={120}
-              height={120}
-              className="rounded-full border-4 border-purple-500 shadow-lg"
-            />
+            <Avatar>
+              <Avatar.Image
+                alt={user?.name}
+                src={user?.image}
+                referrerPolicy="no-referrer"
+              />
+              <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+            </Avatar>
 
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-linear-to-r from-purple-600 to-indigo-600 text-xs px-3 py-1 rounded-full text-white shadow">
               Active User
