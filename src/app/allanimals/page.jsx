@@ -38,8 +38,7 @@ const AllAnimalsPages = () => {
 
   return (
     <section className="bg-linear-to-br from-slate-950 via-zinc-900 to-slate-950 min-h-screen py-20">
-      <div className="w-11/12 max-w-7xl mx-auto">
-        {/* Header */}
+      <div className="w-10/12  mx-auto">
         <div className="text-center mb-14">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-yellow-500/20 bg-yellow-500/10 text-yellow-300 text-sm font-medium backdrop-blur-md">
             Premium Marketplace
@@ -88,7 +87,6 @@ const AllAnimalsPages = () => {
 
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
 
-                  {/* Price */}
                   <div className="absolute top-4 right-4">
                     <div className="bg-yellow-500 text-black text-sm font-bold px-4 py-2 rounded-full shadow-lg">
                       ৳ {animal.price}
@@ -102,7 +100,7 @@ const AllAnimalsPages = () => {
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="p-6 flex flex-col h-64">
                   <h2 className="text-2xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">
                     {animal.name}
                   </h2>

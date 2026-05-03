@@ -9,7 +9,7 @@ const AnimalsPage = async () => {
 
   return (
     <section className="bg-linear-to-br from-slate-950 via-zinc-900 to-slate-950 py-20">
-      <div className="w-11/12 max-w-7xl mx-auto">
+      <div className="w-10/12   mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-yellow-500/20 bg-yellow-500/10 text-yellow-300 text-sm font-medium backdrop-blur-md">
@@ -41,10 +41,8 @@ const AnimalsPage = async () => {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
 
-                {/* Price Badge */}
                 <div className="absolute top-4 right-4">
                   <div className="bg-yellow-500 text-black text-sm font-bold px-4 py-2 rounded-full shadow-lg">
                     ৳ {animal.price}
@@ -58,7 +56,7 @@ const AnimalsPage = async () => {
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col h-64">
                 <h2 className="text-2xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">
                   {animal.name}
                 </h2>
@@ -67,7 +65,6 @@ const AnimalsPage = async () => {
                   {animal.description}
                 </p>
 
-                {/* Info */}
                 <div className="mt-5 flex items-center justify-between text-sm">
                   <div className="flex items-center gap-2 text-slate-300">
                     <MapPin size={16} />
@@ -80,7 +77,7 @@ const AnimalsPage = async () => {
                   </div>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-auto pt-6">
                   <Link
                     href={`/details/${animal.id}`}
                     className="group/button flex items-center justify-center gap-2 rounded-2xl bg-yellow-500 text-black font-semibold py-3 transition-all duration-300 hover:bg-yellow-400"
