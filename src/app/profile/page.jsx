@@ -30,7 +30,7 @@ const ProfilePage = () => {
         <div className="flex flex-col items-center text-center">
           <div className="relative">
             <Image
-              src={user?.image || '/default-avatar.png'}
+              src={user?.image}
               alt="user"
               width={120}
               height={120}
