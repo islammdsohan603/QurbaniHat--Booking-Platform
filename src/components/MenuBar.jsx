@@ -12,7 +12,7 @@ import {
   MoonSun,
 } from 'lucide-react';
 import NavLinksPage from './NavLinks';
-import DarkLightPages from './DarkLight';
+
 import { Avatar, Button } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import { authClient } from '@/lib/auth-client';
@@ -116,13 +116,6 @@ const MenuBar = () => {
                   </Link>
                 </div>
               )}
-            </div>
-
-            <div className="flex items-center justify-between pt-2">
-              <span className="text-xs text-zinc-500">Theme Settings</span>
-              <div className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer">
-                <DarkLightPages />
-              </div>
             </div>
           </div>
         </div>

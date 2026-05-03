@@ -39,7 +39,7 @@ booking orders.
 ### 🎨 Modern UI
 
 - Glassmorphism Design
-- Dark Theme Interface
+
 - Fully Responsive Layout
 - Smooth Hover Effects
 - Professional Navbar & Footer

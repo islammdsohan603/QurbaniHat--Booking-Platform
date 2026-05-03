@@ -6,8 +6,8 @@ const CatgoryPricePage = ({ sortOrder, handleSort, total }) => {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
       <div>
-        <h1 className="text-4xl font-bold text-slate-900">Sort by Price</h1>
-        <p className="text-slate-500 mt-1 text-sm">
+        <h1 className="text-4xl font-bold text-white">Sort by Price</h1>
+        <p className="text-slate-200 mt-1 text-sm">
           {total} টি পশু পাওয়া গেছে
         </p>
       </div>
@@ -18,11 +18,17 @@ const CatgoryPricePage = ({ sortOrder, handleSort, total }) => {
         <select
           value={sortOrder}
           onChange={e => handleSort(e.target.value)}
-          className="text-sm text-slate-700 outline-none cursor-pointer bg-transparent"
+          className="text-sm text-slate-100 outline-none cursor-pointer  "
         >
-          <option value="default">Default</option>
-          <option value="low">Price: Low to High</option>
-          <option value="high">Price: High to Low</option>
+          <option value="default" className="text-black">
+            Default
+          </option>
+          <option value="low" className="text-black">
+            Price: Low to High
+          </option>
+          <option value="high" className="text-black">
+            Price: High to Low
+          </option>
         </select>
       </div>
     </div>

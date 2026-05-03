@@ -45,13 +45,13 @@ const AnimalsDetailsPage = async ({ params }) => {
             <div className="absolute -inset-4 bg-linear-to-r from-purple-600 to-indigo-600 rounded-3xl blur-3xl opacity-20 group-hover:opacity-40 transition duration-700"></div>
 
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
-              <div className="relative h-[500px] w-full overflow-hidden">
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-3xl">
                 <Image
                   src={animal.image}
                   alt={animal.name}
                   fill
                   priority
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
@@ -163,7 +163,7 @@ const AnimalsDetailsPage = async ({ params }) => {
               <button className="group cursor-pointer relative w-full overflow-hidden rounded-2xl bg-linear-to-r from-purple-600 to-indigo-600 py-4 font-bold text-white shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-purple-500/40 active:scale-95">
                 <span className="relative z-10 flex items-center justify-center gap-2 text-lg">
                   <Phone size={20} />
-                  Contact Seller to Order
+                  Booking Now
                 </span>
                 <div className="absolute inset-0 bg-linear-to-r from-indigo-500 to-purple-700 opacity-0 group-hover:opacity-100 transition duration-300"></div>
               </button>

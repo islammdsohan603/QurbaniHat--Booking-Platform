@@ -6,7 +6,7 @@ import { Avatar } from '@heroui/react';
 
 import logo from '@/images/logo.png';
 import NavLinksPage from './NavLinks';
-import DarkLightPages from './DarkLight';
+
 import MenuBar from './MenuBar';
 import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
@@ -51,8 +51,6 @@ const NavbarPages = () => {
           </ul>
 
           <div className="flex items-center gap-4">
-            <DarkLightPages />
-
             {isPending ? (
               <div className="w-8 h-8 rounded-full border-2 border-slate-600 border-t-yellow-400 animate-spin"></div>
             ) : user ? (

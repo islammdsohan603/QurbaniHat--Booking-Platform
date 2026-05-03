@@ -3,21 +3,27 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import bannerImage1 from '@/images/qurbani1.jpg';
-import bannerImage2 from '@/images/qurbain2.png';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const imageItem = [
+import banner from '@/images/Qrubani.png';
+import Link from 'next/link';
+
+const slides = [
   {
-    id: 1,
-    img: bannerImage1,
-    title: 'সেরা কোরবানির পশুপাখি',
-    subTitle: 'আমরা দিচ্ছি সবচেয়ে সুস্থ ও সবল পশুর নিশ্চয়তা।',
+    image: banner,
+    title: 'Premium Qurbani Animals Marketplace',
+    description:
+      'Find healthy and verified Qurbani animals with trusted sellers across Bangladesh. Safe, reliable, and professional experience.',
+    buttonText: 'Explore Animals',
+    href: '/allanimals',
   },
   {
-    id: 2,
-    img: bannerImage2,
-    title: 'প্রকৃতির সাথে পথচলা',
-    subTitle: 'পশুপাখির যত্ন ও ভালোবাসা আমাদের লক্ষ্য।',
+    image: banner,
+    title: 'Choose The Best Animal For Qurbani',
+    description:
+      'Browse premium cattle, goats, and sheep with transparent pricing, verified details, and secure communication.',
+    buttonText: 'Browse Collection',
+    href: '/allanimals',
   },
 ];
 
@@ -25,94 +31,135 @@ const Banner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex(prevIndex => (prevIndex + 1) % imageItem.length);
-    }, 8000);
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % slides.length);
+    }, 5000);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(interval);
   }, []);
 
+  const nextSlide = () => {
+    setCurrentIndex(prev => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex(prev => (prev - 1 + slides.length) % slides.length);
+  };
+
   return (
-    <div className="relative w-screen overflow-hidden shadow-xl">
-      <div className="relative h-64 sm:h-96 md:h-[500px] lg:h-[600px] w-full">
+    <section className="relative w-full overflow-hidden bg-slate-950">
+      <div className="relative h-[70vh] sm:h-[80vh] lg:h-[90vh] w-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0, scale: 1.05 }}
+            initial={{ opacity: 0, scale: 1.08 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9 }}
             className="absolute inset-0"
           >
-            {/* Image */}
             <div className="relative w-full h-full">
               <Image
-                src={imageItem[currentIndex].img}
-                alt="Banner Image"
+                src={slides[currentIndex].image}
+                alt="Qurbani Banner"
                 fill
                 priority
-                sizes="100vw"
-                className="object-cover object-center"
+                className="object-cover"
               />
 
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black/40 sm:bg-black/35"></div>
+              <div className="absolute inset-0 bg-black/60"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/60 to-black/10"></div>
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/30 to-transparent"></div>
-
-              {/* Text Content */}
               <div className="absolute inset-0 flex items-center">
-                <div className="px-4 sm:px-8 md:px-12 lg:px-20 max-w-[95%] sm:max-w-[80%] md:max-w-[60%] z-10">
-                  <motion.h1
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
-                  >
-                    {imageItem[currentIndex].title}
-                  </motion.h1>
+                <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 w-full">
+                  <div className="max-w-3xl">
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                      className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-400/20 backdrop-blur-md"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-yellow-400"></span>
+                      <p className="text-yellow-300 text-sm font-medium tracking-wide uppercase">
+                        Trusted Qurbani Marketplace
+                      </p>
+                    </motion.div>
 
-                  <motion.p
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="mt-2 sm:mt-4 text-xs sm:text-sm md:text-lg lg:text-xl text-gray-200 leading-relaxed"
-                  >
-                    {imageItem[currentIndex].subTitle}
-                  </motion.p>
+                    <motion.h1
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
+                    >
+                      {slides[currentIndex].title}
+                    </motion.h1>
 
-                  {/* Button */}
-                  <motion.button
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.7 }}
-                    className="mt-4 sm:mt-6 px-4 py-2 sm:px-6 sm:py-3 bg-emerald-500 hover:bg-emerald-600 rounded-lg text-white font-medium transition-all duration-300 text-sm sm:text-base"
-                  >
-                    বিস্তারিত দেখুন
-                  </motion.button>
+                    <motion.p
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 }}
+                      className="mt-6 text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl"
+                    >
+                      {slides[currentIndex].description}
+                    </motion.p>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7 }}
+                      className="mt-8 flex flex-wrap gap-4"
+                    >
+                      <Link href={slides[currentIndex].href}>
+                        <button className="group inline-flex items-center gap-2 rounded-2xl cursor-pointer bg-yellow-500 hover:bg-yellow-400 px-6 py-3 text-black font-semibold transition-all duration-300 shadow-lg shadow-yellow-500/20">
+                          {slides[currentIndex].buttonText}
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </button>
+                      </Link>
+
+                      <button className="rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md px-6 py-3 text-white hover:bg-white/10 transition-all duration-300">
+                        Learn More
+                      </button>
+                    </motion.div>
+                  </div>
                 </div>
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Dots */}
-        <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-          {imageItem.map((_, index) => (
+        <div className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-20">
+          <button
+            onClick={prevSlide}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-black/30 backdrop-blur-md border border-white/10 text-white hover:bg-yellow-500 hover:text-black transition-all duration-300"
+          >
+            <ChevronLeft size={22} />
+          </button>
+        </div>
+
+        <div className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-20">
+          <button
+            onClick={nextSlide}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-black/30 backdrop-blur-md border border-white/10 text-white hover:bg-yellow-500 hover:text-black transition-all duration-300"
+          >
+            <ChevronRight size={22} />
+          </button>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
+          {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`rounded-full transition-all duration-300 ${
+              className={`transition-all duration-300 rounded-full ${
                 currentIndex === index
-                  ? 'w-8 h-2 bg-emerald-500'
-                  : 'w-2 h-2 bg-white/60'
+                  ? 'w-10 h-3 bg-yellow-400'
+                  : 'w-3 h-3 bg-white/40 hover:bg-white/80'
               }`}
             />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
