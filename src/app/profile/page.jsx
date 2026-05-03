@@ -35,6 +35,7 @@ const ProfilePage = () => {
                 alt={user?.name}
                 src={user?.image}
                 referrerPolicy="no-referrer"
+                className="w-32 h-32 rounded-full border-purple-500 shadow-2xs"
               />
               <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
             </Avatar>
