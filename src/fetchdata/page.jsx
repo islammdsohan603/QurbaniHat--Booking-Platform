@@ -1,6 +1,6 @@
 export async function getData() {
   const res = await fetch(
-    'https://qurbani-hat-pink.vercel.app/animalsData.json',
+    'https://my-app-qurbaniweb.vercel.app/animalsData.json',
     {
       cache: 'no-store',
     },
