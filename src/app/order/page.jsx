@@ -38,23 +38,28 @@ const OrderFormPage = () => {
 
           <form onSubmit={onSubmit} className="space-y-6">
             <div>
-              <Label>Full Name</Label>
-              <Input name="name" required />
+              <Label className="block text-white">Full Name</Label>
+              <Input name="name" required className={'w-full'} />
             </div>
 
             <div>
-              <Label>Email</Label>
-              <Input name="email" type="email" required />
+              <Label className="block text-white">Email</Label>
+              <Input name="email" type="email" required className={'w-full'} />
             </div>
 
             <div>
-              <Label>Phone</Label>
-              <Input maxLength={11} name="phone" required />
+              <Label className="block text-white">Phone</Label>
+              <Input
+                maxLength={11}
+                name="phone"
+                required
+                className={'w-full'}
+              />
             </div>
 
             <div>
-              <Label>Address</Label>
-              <Input name="address" required />
+              <Label className="block text-white">Address</Label>
+              <Input name="address" required className={'w-full'} />
             </div>
 
             <Button
