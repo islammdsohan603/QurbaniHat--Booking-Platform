@@ -31,7 +31,7 @@ const ProfilePage = () => {
           <div className="relative">
             <Image
               src={user?.image}
-              alt="user"
+              alt="user "
               width={120}
               height={120}
               className="rounded-full border-4 border-purple-500 shadow-lg"

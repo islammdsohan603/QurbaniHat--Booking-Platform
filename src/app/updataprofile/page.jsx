@@ -21,7 +21,7 @@ const UpdataProfilePage = () => {
     const formData = new FormData(e.currentTarget);
 
     const name = formData.get('name');
-    const image = formData.get('photo');
+    const image = formData.get('image');
 
     try {
       const { data, error } = await authClient.updateUser({
@@ -34,7 +34,6 @@ const UpdataProfilePage = () => {
         toast.success('Profile Updated Successfully ✅');
 
         router.push('/profile');
-        router.refresh();
       }
 
       if (error) {
@@ -60,7 +59,7 @@ const UpdataProfilePage = () => {
             <FieldError />
           </TextField>
 
-          <TextField isRequired name="photo" type="url">
+          <TextField isRequired name="image" type="url">
             <Label className="text-zinc-300 mb-1 block">Photo URL</Label>
             <Input placeholder="https://example.com/photo.jpg" />
             <FieldError />
