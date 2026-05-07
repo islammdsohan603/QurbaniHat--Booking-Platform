@@ -11,15 +11,12 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { getData } from '@/fetchdata/page';
 
 const AnimalsDetailsPage = async ({ params }) => {
   const { id } = await params;
 
-  const res = await fetch('http://localhost:3000/animalsData.json', {
-    cache: 'no-store',
-  });
-
-  const data = await res.json();
+  const data = await getData();
   const animal = data.find(p => p.id === Number(id));
 
   if (!animal) {

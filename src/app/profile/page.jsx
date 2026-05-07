@@ -30,7 +30,7 @@ const ProfilePage = () => {
         <div className="flex flex-col items-center text-center">
           <div className="relative">
             <Image
-              src={user?.image || 'https://i.ibb.co/default-image.jpg'}
+              src={user?.image}
               alt="user"
               width={120}
               height={120}
