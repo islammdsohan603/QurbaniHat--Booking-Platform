@@ -15,12 +15,9 @@ import React from 'react';
 const AnimalsDetailsPage = async ({ params }) => {
   const { id } = await params;
 
-  const res = await fetch(
-    'https://my-app-qurbaniweb.vercel.app/animalsData.json',
-    {
-      cache: 'no-store',
-    },
-  );
+  const res = await fetch('http://localhost:3000/animalsData.json', {
+    cache: 'no-store',
+  });
 
   const data = await res.json();
   const animal = data.find(p => p.id === Number(id));

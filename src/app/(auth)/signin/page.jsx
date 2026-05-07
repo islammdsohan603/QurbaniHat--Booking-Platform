@@ -32,19 +32,22 @@ const SignInpage = () => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-    const userData = Object.fromEntries(formData.entries());
+
+    const email = formData.get('email')?.toString();
+    const password = formData.get('password')?.toString();
 
     const { data, error } = await authClient.signIn.email({
-      password: userData.password,
-      email: userData.email,
+      email,
+      password,
     });
 
     if (data) {
-      toast.success('signIp succefully');
-      route.push('/');
+      toast.success('Login Successful ✅');
+      route.push('/profile');
     }
+
     if (error) {
-      toast.error('signUp Filed');
+      toast.error('Invalid credentials');
     }
   };
 

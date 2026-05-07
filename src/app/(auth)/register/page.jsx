@@ -37,9 +37,9 @@ const RegisterPage = () => {
 
     const { data, error } = await authClient.signUp.email({
       name: userData.name,
-      password: userData.password,
       email: userData.email,
-      photo: userData.photo,
+      password: userData.password,
+      image: userData.photo,
     });
 
     if (data) {
