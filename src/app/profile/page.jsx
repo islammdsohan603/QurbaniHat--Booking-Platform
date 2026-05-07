@@ -34,7 +34,7 @@ const ProfilePage = () => {
               alt="user"
               width={120}
               height={120}
-              className="rounded-full border-4 border-purple-500 shadow-lg"
+              className="rounded-full border-4 border-purple-500 shadow-lg cursor-pointer hover:scale-110 transition-all duration-300"
             />
 
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-linear-to-r from-purple-600 to-indigo-600 text-xs px-3 py-1 rounded-full text-white shadow">
