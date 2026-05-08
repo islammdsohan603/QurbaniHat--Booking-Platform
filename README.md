@@ -9,7 +9,7 @@ booking orders.
 
 # 🚀 Live Demo
 
-- \*\*Live Website: https://my-app-qurbaniweb.vercel.app/
+- \*\*Live Website: https://qurbani-hat-booking-platform.vercel.app
 
 # ✨ Features
 
